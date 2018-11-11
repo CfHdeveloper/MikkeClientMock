@@ -1,0 +1,21 @@
+
+<div class="container">
+    <%if !@circles.nil?%>
+
+    <div class="row mt-5">
+    <%@circles.each do |circle|%>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+        <a href="/circle/<%=circle[:id]%>" class="card mb-4">
+            <img class="card-img-top" src="<%=circle[:url]%>" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"><%=circle[:name]%></p>
+            </div>
+        </a>
+        </div>
+    <%end%>
+    </div>
+    </div>
+    <%else%>
+        <p>指定のサークルは見つかりませんでした</p>
+    <%end%>
+</div>

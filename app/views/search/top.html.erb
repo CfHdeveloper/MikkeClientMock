@@ -1,0 +1,14 @@
+<div class="container">
+  
+  <%= form_tag('/search',:method=>:get, :class=>"mt-5") do%>
+    <div class="input-group">
+    <%= text_field_tag "q", '',{class:"form-control"} %>
+    <%= button_tag :type => "submit", :class =>"btn btn-primary", :id=>"search-btn" do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+    </div>
+  <%end%>
+  
+
+  <!--aaaaaaa-->
+</div>

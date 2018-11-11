@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+//色設定
+$yellow_default:#f5bb1c;
+$yellow_active:#f7c642;
+
+//全体設定
+a:hover {
+    text-decoration: none;
+}
+
+//navigation関連
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    padding: 8px 16px;
+    color:white;
+    font-weight: bold;
+}
+
+//色関連
+.white {
+    color:white;
+}
+.bg-yellow {
+    background-color: $yellow_default;
+}
+
+
+//card関連
+.card {
+    border-radius: 0%;
+    border:none;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
+    transition: 0.3s;
+
+    .card-img-top {
+        border-radius: 0%;
+    }
+
+    .card-body {
+        background-color: black;
+        .card-text {
+            text-align: center;
+            color:white;
+        }
+    }
+
+    &:hover{
+        transform: scale(1.05,1.05);
+        transition-duration: 0.3s;
+    }
+}
+
+//button関連
+.btn-default {
+    color: #333333;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+.btn-primary{
+    color:white;
+    background-color: $yellow_default;
+    border-color: $yellow_default;
+
+    &:hover,&:active{
+        background-color: $yellow_active;
+        border-color: $yellow_active;
+    }
+}
+
+
+

@@ -1,0 +1,57 @@
+
+
+<div class="img-container" style="background-image:url('<%=@image%>'); background-size:100% auto;">
+  <div class="title-wrapper container">
+    <h2 class="title ml-3"><%=@name%></h2>
+  </div>
+</div>
+
+<div class="container">
+  <p class="hidden" id="circle_id"><%=@id%></p>
+  <h5 class="element mt-5">活動場所</h5>
+  <p class="mt-2"><%=@location%></p>
+  <h5 class="element mt-5">メンバー</h5>
+  <p class="mt-2"><%=@member%>人</p>
+  <h5 class="element mt-5">リンク</h5>
+  <a class="mt-2"><%=@link%></a>
+  <h5 class="element mt-5">活動日程</h5>
+  <table class="day-table mt-2">
+  <thead>
+  <tr>
+    <th scope="col" class="day-col">月</th>
+    <th scope="col" class="day-col">火</th>
+    <th scope="col" class="day-col">水</th>
+    <th scope="col" class="day-col">木</th>
+    <th scope="col" class="day-col">金</th>
+    <th scope="col" class="day-col sat">土</th>
+    <th scope="col" class="day-col sun">日</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <%for num in 0..6 do%>
+      <td class="time-col">
+        <div>
+          <%if @days.include?(num)%>
+          <h3 class="active">○</h3>
+          <p class="time">15:00~17:00</p>
+          <%else%>
+          <h5 class="disactive"> - </h5>
+          <%end%>
+        </div>
+      </td>
+    <%end%>
+  </tr>
+  </tbody>
+  </table>
+
+  <h5 class="catch-copy mt-5"><%=@title%></h5>
+
+  <p class="desc mt-3"><%=@desc%></p>
+
+  <div class="btn-container mt-5">
+    <a href="/search" class="btn btn-default like-button float-left"><i class="fa fa-undo mr-2"></i>サークル一覧へ</a>
+    <button class="btn btn-primary like-button float-right" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</button>
+  </div>
+</div>
+

@@ -1,0 +1,106 @@
+// Place all the styles related to the circle controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.hidden {
+    display: none;
+}
+.triming {
+    width: 100%;/* トリミングしたい枠の幅 */
+    height: 400px;/* トリミングしたい枠の高さ */
+    object-fit: cover;
+}
+
+
+.img-container{
+    width:100%;
+    height:400px;
+}
+
+.title-wrapper {
+    position: relative;
+    width:100%;
+    height:400px;
+}
+
+
+
+.title {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.place {
+    color: #A9A9A9;
+}
+
+.element{
+    font-weight: bold;
+}
+
+
+//曜日関連
+.day-table{
+    width: 100%;
+    .day-col {
+        text-align: center;
+        border: none;
+        width: 13%;
+        margin-bottom: 8px;
+    }
+
+    .sat{
+        color:#368bcb;
+    }
+
+    .sun {
+        color:#e64437;
+    }
+
+    .time-col {
+        border: 1px solid gainsboro;
+        padding-top:8px;
+        padding-bottom: 8px;
+
+        .active {
+            text-align: center;
+            font-weight: bold;
+            margin:0;
+            color:$yellow_default;
+        }
+
+        .time {
+            word-break: break-all;
+            text-align: center;
+            margin:0;
+            color: #A9A9A9;
+        }
+
+        .disactive {
+            text-align: center;
+            color: #A9A9A9;
+        }
+
+    }
+
+    
+}
+
+.catch-copy {
+    font-weight: bold;
+}
+
+.desc {
+    color: #696969;
+}
+.like-button {
+    width: 50%;
+    padding-top:16px;
+    padding-bottom: 16px;
+}
+
+.btn-container {
+    width: 100%;
+}
