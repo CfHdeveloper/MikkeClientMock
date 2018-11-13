@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'httpclient'
 
 gem 'font-awesome-rails'
+
+gem 'jquery-turbolinks'

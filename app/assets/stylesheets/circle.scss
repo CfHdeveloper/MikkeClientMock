@@ -1,9 +1,13 @@
 // Place all the styles related to the circle controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$yellow_default:#f5bb1c;
+
 .hidden {
     display: none;
 }
+
 .triming {
     width: 100%;/* トリミングしたい枠の幅 */
     height: 400px;/* トリミングしたい枠の高さ */

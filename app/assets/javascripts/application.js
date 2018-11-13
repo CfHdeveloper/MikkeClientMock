@@ -12,12 +12,14 @@
 //
 //= require jquery3
 //= require rails-ujs
+//= require jquery.turbolinks
 //= require activestorage
-//= require turbolinks
 //= require_tree 
 //= require bootstrap-sprockets
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    
     document.querySelector('#user').addEventListener('click',function(){
         
         //ブラウザに保存されているidを取得
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
         //ブラウザに保存されているkeyがnullならそのまま保存、すでに入っているなら追加して保存
         if(userKeepId){
             //userKeepIdを配列に直す
-            window.location.href = 'http://localhost:3000/search?ids='+userKeepId;
+            window.location.href = 'http://localhost:3000/user?ids='+userKeepId;
 
         }else{
         }

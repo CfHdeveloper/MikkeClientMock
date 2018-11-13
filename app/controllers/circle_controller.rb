@@ -1,36 +1,33 @@
 class CircleController < ApplicationController
   
-  #@end_point="http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json"
   def index
     @word=params["q"]
+    @circles=connect_index_api(@word)
+  end
 
+  def user
     @ids=params["ids"]
-    
-    #idsがnilでない場合、userがlikeした一覧
-    if !@ids.nil?
-      circles=@ids.split(//).map(&:to_i)
-      @circles=connect_index_api_post(circles)
-    else
-      @circles=connect_index_api(@word)
-    end
-
+    circles=@ids.split(//).map(&:to_i)
+    @circles=connect_user_api(circles)
+    render "circle/index"
   end
   
   def show
 
     location=["豊中キャンパス","吹田キャンパス","箕面キャンパス","その他"]
 
+    #なぜかここだけkeyがsimbolで返って来てる...
     @id=params["id"]
     @circle=connect_show_api(@id)
-    @name=@circle[:name]
-    @desc=@circle[:description]
-    @title=@circle[:title]
-    @member = @circle[:members]
-    @location = location[@circle[:location]-1]
-    @image=@circle[:url]
-    @link=@circle[:link]
+    @name=@circle["name"]
+    @desc=@circle["description"]
+    @title=@circle["title"]
+    @member = @circle["members"]
+    @location = location[@circle["location"].to_i-1]
+    @image=@circle["url"]
+    @link=@circle["link"]
 
-    days_str=@circle[:days]
+    days_str=@circle["days"]
     @days=days_str.split(//).map(&:to_i)
 
 
@@ -41,26 +38,20 @@ class CircleController < ApplicationController
 
   def connect_show_api(id)
     url = "http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/#{id}"
-    res = eval(http_get({},url))
-
-    p res
+    res = JSON.parse(http_get({},url))
     return res
   end
 
   def connect_index_api(word)
     query = {'q' => word}
     url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json'
-    res = eval(http_get(query,url))
-
-    p res
+    res = JSON.parse(http_get(query,url))
     return res
   end
 
-  def connect_index_api_post(circles)
+  def connect_user_api(circles)
     url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/ids'
-    res = eval(http_post(url,{:ids=>circles}))
-
-    p res
+    res = JSON.parse(http_post(url,{"ids[]":circles}))
     return res
   end
 end

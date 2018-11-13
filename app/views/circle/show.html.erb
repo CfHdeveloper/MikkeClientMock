@@ -8,6 +8,7 @@
 
 <div class="container">
   <p class="hidden" id="circle_id"><%=@id%></p>
+  <p id="is_liked">aaa</p>
   <h5 class="element mt-5">活動場所</h5>
   <p class="mt-2"><%=@location%></p>
   <h5 class="element mt-5">メンバー</h5>
@@ -50,7 +51,7 @@
   <p class="desc mt-3"><%=@desc%></p>
 
   <div class="btn-container mt-5">
-    <a href="/search" class="btn btn-default like-button float-left"><i class="fa fa-undo mr-2"></i>サークル一覧へ</a>
+    <a href="/search" class="btn btn-default like-button float-left" id="back"><i class="fa fa-undo mr-2"></i>サークル一覧へ</a>
     <button class="btn btn-primary like-button float-right" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</button>
   </div>
 </div>
