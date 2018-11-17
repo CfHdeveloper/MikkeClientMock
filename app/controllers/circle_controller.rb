@@ -2,6 +2,7 @@ class CircleController < ApplicationController
   
   def index
     @word=params["q"]
+    @location=params["location"]
     @circles=connect_index_api(@word)
   end
 
@@ -16,7 +17,6 @@ class CircleController < ApplicationController
 
     location=["豊中キャンパス","吹田キャンパス","箕面キャンパス","その他"]
 
-    #なぜかここだけkeyがsimbolで返って来てる...
     @id=params["id"]
     @circle=connect_show_api(@id)
     @name=@circle["name"]
@@ -38,6 +38,7 @@ class CircleController < ApplicationController
 
   def connect_show_api(id)
     url = "http://tk2-215-17314.vs.sakura.ne.jp:3000/circles/#{id}"
+    #url = "http://127.0.0.1:4000/circles/#{id}"
     res = JSON.parse(http_get({},url))
     return res
   end
@@ -45,6 +46,7 @@ class CircleController < ApplicationController
   def connect_index_api(word)
     query = {'q' => word}
     url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json'
+    #url = 'http://127.0.0.1:4000/circles'
     res = JSON.parse(http_get(query,url))
     return res
   end

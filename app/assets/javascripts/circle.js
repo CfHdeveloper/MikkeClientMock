@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function(){
 
     function isLiked(){
@@ -47,4 +44,5 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     });
+
 }, false);

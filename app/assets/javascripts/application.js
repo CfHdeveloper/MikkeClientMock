@@ -19,7 +19,6 @@
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    
     document.querySelector('#user').addEventListener('click',function(){
         
         //ブラウザに保存されているidを取得
