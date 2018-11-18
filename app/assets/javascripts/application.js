@@ -16,22 +16,32 @@
 //= require activestorage
 //= require_tree 
 //= require bootstrap-sprockets
+$(document).ready(function(){
 
-document.addEventListener("DOMContentLoaded", function(){
+    // Add slideDown animation to Bootstrap dropdown when expanding.
+    $('.dropdown').on('show.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    });
 
-    document.querySelector('#user').addEventListener('click',function(){
-        
-        //ブラウザに保存されているidを取得
-        var userKeepId = localStorage.getItem("user");
-        
-        console.log(userKeepId);
-        //ブラウザに保存されているkeyがnullならそのまま保存、すでに入っているなら追加して保存
+    // Add slideUp animation to Bootstrap dropdown when collapsing.
+    $('.dropdown').on('hide.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+
+    $('#user').click(function(){
+        console.log("redirect to user page");
+
+         //ブラウザに保存されているidを取得
+         var userKeepId = localStorage.getItem("user");
+         
+         console.log(userKeepId);
+         //ブラウザに保存されているkeyがnullならそのまま保存、すでに入っているなら追加して保存
         if(userKeepId){
             //userKeepIdを配列に直す
-            window.location.href = 'http://mikke.coffee-dev.xyz/user/?ids='+userKeepId;
-
+            //現状、developとproductionのurlは主導切り替え
+            window.location.href = '/user/?ids='+userKeepId;
         }else{
-            window.location.href= 'http://mikke.coffee-dev.xyz/user/'
+            window.location.href= '/user/'
         }
     });
-}, false);
+});
