@@ -28,9 +28,10 @@ document.addEventListener("DOMContentLoaded", function(){
         //ブラウザに保存されているkeyがnullならそのまま保存、すでに入っているなら追加して保存
         if(userKeepId){
             //userKeepIdを配列に直す
-            window.location.href = 'http://localhost:3000/user?ids='+userKeepId;
+            window.location.href = 'http://mikke.coffee-dev.xyz/user/?ids='+userKeepId;
 
         }else{
+            window.location.href= 'http://mikke.coffee-dev.xyz/user/'
         }
     });
 }, false);

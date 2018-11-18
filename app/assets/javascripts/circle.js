@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", function(){
         //ブラウザに保存されているidを取得
         var userKeepId = localStorage.getItem("user");
         console.log(userKeepId);
+        
+        //保存されてない場合そのまま
+        if(!userKeepId){
+            return;
+        }
+        
+        
         if(userKeepId.match(String(id))){
             console.log("like");
             document.querySelector('#like').innerHTML="<i class='fa fa-heart mr-2'></i>お気に入り解除";
@@ -26,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function(){
         //ブラウザに保存されているidを取得
         var userKeepId = localStorage.getItem("user");
         console.log(userKeepId);
+
         if(userKeepId&&!userKeepId.match(String(id))){
             //ブラウザにすでにuserKeepIdが保存されていて、かつこのページのIdは保存されていない
-            console.log("aa");
             localStorage.setItem("user",userKeepId+id);
             this.innerHTML="<i class='fa fa-heart mr-2'></i>お気に入り解除";
         }else if(!userKeepId){
-            console.log("bb");
+            //ブラウザにuserKeepIdが保存されていない
             localStorage.setItem("user",id);
             this.innerHTML="<i class='fa fa-heart mr-2'></i>お気に入り解除";
         }else{

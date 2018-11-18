@@ -8,8 +8,11 @@ class CircleController < ApplicationController
 
   def user
     @ids=params["ids"]
-    circles=@ids.split(//).map(&:to_i)
-    @circles=connect_user_api(circles)
+    @circles=nil
+    if @ids
+        circles=@ids.split(//).map(&:to_i)
+        @circles=connect_user_api(circles)
+    end
     render "circle/index"
   end
   
