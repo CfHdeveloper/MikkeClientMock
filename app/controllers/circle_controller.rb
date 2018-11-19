@@ -28,7 +28,7 @@ class CircleController < ApplicationController
     @member = @circle["members"]
     @location = location[@circle["location"].to_i-1]
     @image=@circle["url"]
-    @link=@circle["link"]
+    @links=eval(@circle["link"])
 
     days_str=@circle["days"]
     @days=days_str.split(//).map(&:to_i)
