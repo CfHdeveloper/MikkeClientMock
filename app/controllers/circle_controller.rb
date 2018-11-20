@@ -1,9 +1,24 @@
 class CircleController < ApplicationController
   
   def index
-    @word=params["q"]
     @location=params["location"]
-    @circles=connect_index_api(@word)
+    p "location #{@location}"
+    @days=''
+
+    @days_array=params["days"]
+    if (!@days_array.nil?)
+      @days_array.each do |day|
+        @days+=day
+      end
+    end
+
+    p "days:#{@days}"
+
+    @query={
+      'location'=>@location,
+      'days'=>@days
+    }
+    @circles=connect_index_api(@query)
   end
 
   def user
@@ -46,8 +61,7 @@ class CircleController < ApplicationController
     return res
   end
 
-  def connect_index_api(word)
-    query = {'q' => word}
+  def connect_index_api(query)
     url = 'http://tk2-215-17314.vs.sakura.ne.jp:3000/circles.json'
     #url = 'http://127.0.0.1:4000/circles'
     res = JSON.parse(http_get(query,url))

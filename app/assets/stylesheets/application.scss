@@ -129,6 +129,15 @@ body {
     }
 }
 
+//bootstrap特有のクリック時に青い枠線がでる現象への対策
+//クリック時についてはまだ改善できていない
+.btn{
+    &:focus {
+        outline:none !important;
+        box-shadow: none;
+    }
+}
+
 
 //userのみjsで遷移するのでcursor指定　
 #user {
