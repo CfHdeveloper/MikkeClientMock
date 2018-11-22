@@ -2,36 +2,110 @@
 <html>
   <head>
     <title>TestApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-yellow" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href ="/">
-        <img src="/images/logo.png" width="200" height="26" class="d-inline-block align-top" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa fa-bars white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link white" href="#">サークル</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="user">ユーザー</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="navbar navbar-expand-lg bg-yellow">
+      <a class="navbar-brand" href="/">
+        <%=image_tag("logo.png", :size=>"150x19")%>
+        
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars navbar-toggler-icon white"></i>
 
-    </nav>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link white" href="/">詳細検索</a>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link white" id="user">ライク一覧</p>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            サークル検索
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <ul class="nav flex-column">
+                      <li class="nav-item">
+                      <p class="nav-link bold pink">活動場所で検索</p>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?location=0">豊中キャンパス</a>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?location=1">吹田キャンパス</a>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?location=2">箕面キャンパス</a>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?location=3">その他</a>
+                      </li>
+                  </ul>
+                </div>
+                <!-- /.col-md-4  -->
+                <div class="col-md-4">
+                  <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <p class="nav-link bold pink">曜日で検索</p>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=0">月</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=1">火</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=2">水</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=3">木</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=4">金</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/?days=5">土</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/search/days=6">日</a>
+                  </li>
+                </ul>
+                </div>
+                <!-- /.col-md-4  -->
+                  <div class="col-md-4">
+                  <ul class="nav flex-column">
+                      <li class="nav-item">
+                      <p class="nav-link bold pink">ジャンルで検索</p>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?genre[]=運動系">運動系</a>
+                      </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="/search/?genre[]=文化系">文化系</a>
+                      </li>
+                  </ul>
+                  </div>
+                <!-- /.col-md-4  -->
+              </div>
+            </div>
+            <!--  /.container  -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
     <div>
       <%= yield %>
     </div>

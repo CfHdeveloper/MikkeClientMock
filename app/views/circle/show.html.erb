@@ -1,6 +1,4 @@
-
-
-<div class="img-container" style="background-image:url('<%=@image%>'); background-size:100% auto;">
+<div class="container img-container" style="background-image:url('<%=@image%>');">
   <div class="title-wrapper container">
     <h2 class="title ml-3"><%=@name%></h2>
   </div>
@@ -8,13 +6,14 @@
 
 <div class="container">
   <p class="hidden" id="circle_id"><%=@id%></p>
-  <p id="is_liked">aaa</p>
   <h5 class="element mt-5">活動場所</h5>
   <p class="mt-2"><%=@location%></p>
   <h5 class="element mt-5">メンバー</h5>
   <p class="mt-2"><%=@member%>人</p>
   <h5 class="element mt-5">リンク</h5>
-  <a class="mt-2"><%=@link%></a>
+  <%=link_to 'HP', @links[0], :class=>'mt-2'%>
+  <%=link_to 'Twitter', @links[1], :class=>'mt-2'%>
+  <%=link_to 'Facebook', @links[2], :class=>'mt-2'%>
   <h5 class="element mt-5">活動日程</h5>
   <table class="day-table mt-2">
   <thead>
@@ -35,7 +34,7 @@
         <div>
           <%if @days.include?(num)%>
           <h3 class="active">○</h3>
-          <p class="time">15:00~17:00</p>
+          <p class="time">15:00<br>~<br>17:00</p>
           <%else%>
           <h5 class="disactive"> - </h5>
           <%end%>

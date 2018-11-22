@@ -19,21 +19,32 @@
 //色設定
 $yellow_default:#f5bb1c;
 $yellow_active:#f7c642;
+$pink: #FF5964;
+
+
 
 //全体設定
+a {
+    color: black;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
 a:hover {
+    color: gray;
     text-decoration: none;
 }
 
-//navigation関連
-.navbar-toggler {
-    border: none;
+html {
+    min-height: 100%;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    padding: 8px 16px;
-    color:white;
-    font-weight: bold;
+body {
+    height :100%;
+    //background: linear-gradient(#fbc2eb, #a6c1ee);
+    //background-color: white;
 }
 
 //色関連
@@ -41,34 +52,64 @@ a:hover {
     color:white;
 }
 .bg-yellow {
+    //background-color: $yellow_default;
     background-color: $yellow_default;
 }
+.bg-primary {
+    color: black;
+}
 
+.bold {
+    font-weight: bold;
+}
 
-//card関連
-.card {
-    border-radius: 0%;
-    border:none;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
-    transition: 0.3s;
+.pink {
+    color: $pink;
+}
 
-    .card-img-top {
-        border-radius: 0%;
-    }
-
-    .card-body {
-        background-color: black;
-        .card-text {
-            text-align: center;
-            color:white;
-        }
-    }
-
-    &:hover{
-        transform: scale(1.05,1.05);
-        transition-duration: 0.3s;
+//navbar関連
+//navbar
+/* adds some margin below the link sets  */
+.navbar {
+    .dropdown-menu {
+        border:none;
+        background-color:white;
     }
 }
+ 
+ /* breakpoint and up - mega dropdown styles */
+@media screen and (min-width: 992px) {
+   
+   /* remove the padding from the navbar so the dropdown hover state is not broken */
+ .navbar {
+   /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+   .nav-item {
+        padding:.25rem .25rem;
+        margin:0 .25rem;
+    }
+
+    .dropdown {
+        position:static;
+    }
+
+    .dropdown-menu {
+        width:100%;
+        left:0;
+        right:0;
+        /*  height of nav-item  */
+        top:45px;
+        border: 1px solid rgba(0,0,0,.15);
+    }
+
+ }
+}
+   
+   /* shows the dropdown menu on hover */
+//  .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
+//    display:block!important;
+//  }
+
+
 
 //button関連
 .btn-default {
@@ -88,5 +129,17 @@ a:hover {
     }
 }
 
+//bootstrap特有のクリック時に青い枠線がでる現象への対策
+//クリック時についてはまだ改善できていない
+.btn{
+    &:focus {
+        outline:none !important;
+        box-shadow: none;
+    }
+}
 
 
+//userのみjsで遷移するのでcursor指定　
+#user {
+    cursor: pointer;
+}
