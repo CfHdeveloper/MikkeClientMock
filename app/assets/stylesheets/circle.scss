@@ -66,7 +66,13 @@ $pink_active: #FF6070;
     }
 }
 
-.place {color: #A9A9A9}
+.sns-icon{
+    padding: 4px;
+    .fa-home{color: #696969}//home
+    .fa-twitter{color: #55acee}//twitter
+    .fa-facebook{color: #3b5998}//facebook
+    &:hover{opacity: 0.8}
+}
 
 //曜日関連
 .table-wrapper{
