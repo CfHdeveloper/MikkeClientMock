@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//色設定
 $yellow_default:#f5bb1c;
+$yellow_active:#f7c642;
+$pink_default: #FF5964;
+$pink_active: #FF6070;
 
 //card関連
 .card-container {
@@ -47,15 +51,7 @@ $yellow_default:#f5bb1c;
     }
 }
 
-.hidden {
-    display: none;
-}
-
-.triming {
-    width: 100%;/* トリミングしたい枠の幅 */
-    height: 400px;/* トリミングしたい枠の高さ */
-    object-fit: cover;
-}
+.hidden {display: none}
 
 .img-container{
     margin: 0 -15px;
@@ -69,23 +65,22 @@ $yellow_default:#f5bb1c;
     background-size:100% auto;  
     height:400px;
 }
-}
-
-.title-wrapper {
-    position: relative;
-    width:100%;
-    height:400px;
-    background-color: rgba(0,0,0,0.6);
-}
-
-
-
-.title {
-    position:absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
+    .title-wrapper {
+        position: relative;
+        width:100%;
+        height:400px;
+        background-color: rgba(0,0,0,0.3);
+        .title {
+            position:absolute;
+            left: .5em;
+            bottom: 1em;
+            color: white;
+            font-weight: bold;
+        @media screen and (max-width:767px){
+            font-size: 1rem;
+        }
+        }
+    }
 }
 
 .place {
@@ -107,13 +102,8 @@ $yellow_default:#f5bb1c;
         margin-bottom: 8px;
     }
 
-    .sat{
-        color:#368bcb;
-    }
-
-    .sun {
-        color:#e64437;
-    }
+    .sat{color:#368bcb}
+    .sun {color:#e64437}
 
     .time-col {
         border: 1px solid gainsboro;
@@ -141,19 +131,33 @@ $yellow_default:#f5bb1c;
     } 
 }
 
-.catch-copy {
-    font-weight: bold;
-}
+.catch-copy {font-weight: bold}
+.desc {color: #696969}
 
-.desc {
-    color: #696969;
-}
-.like-button {
-    width: 50%;
-    padding-top:16px;
-    padding-bottom: 16px;
-}
+.nav-like{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-.btn-container {
-    width: 100%;
+    .nav-like-btn{
+        display: flex;
+        align-self: stretch;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        color: white !important;
+        cursor: pointer;
+    }
+
+    #like{
+        background: $pink_default;
+        &:hover{background: $pink_active}
+    }
+
+    #back{
+        background: $yellow_default;
+        &:hover{background: $yellow_active}
+    }
 }
