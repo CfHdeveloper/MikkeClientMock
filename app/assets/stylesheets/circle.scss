@@ -69,45 +69,45 @@ $pink_active: #FF6070;
 .place {color: #A9A9A9}
 
 //曜日関連
-.day-table{
+.table-wrapper{
     width: 100%;
-    .day-col {
-        text-align: center;
-        border: none;
-        width: 13%;
-        margin-bottom: 8px;
+@media screen and (max-width:575px){
+    overflow-x: scroll;
+}
+    .day-table{
+        width: 480px;
+        .day-col {
+            text-align: center;
+            border: none;
+            width: 13%;
+            margin-bottom: 8px;
+        }
+        .sat{color:#368bcb}
+        .sun {color:#e64437}
+        .time-col {
+            border: 1px solid gainsboro;
+            padding-top:8px;
+            padding-bottom: 8px;
+            .active {
+                text-align: center;
+                font-weight: bold;
+                margin:0;
+                color:$yellow_default;
+            }
+            .time {
+                word-break: break-all;
+                text-align: center;
+                margin:0;
+                color: #A9A9A9;
+            }
+            .disactive {
+                text-align: center;
+                color: #A9A9A9;
+            }
+        } 
     }
-
-    .sat{color:#368bcb}
-    .sun {color:#e64437}
-
-    .time-col {
-        border: 1px solid gainsboro;
-        padding-top:8px;
-        padding-bottom: 8px;
-
-        .active {
-            text-align: center;
-            font-weight: bold;
-            margin:0;
-            color:$yellow_default;
-        }
-
-        .time {
-            word-break: break-all;
-            text-align: center;
-            margin:0;
-            color: #A9A9A9;
-        }
-
-        .disactive {
-            text-align: center;
-            color: #A9A9A9;
-        }
-    } 
 }
 
-.catch-copy {font-weight: bold}
 .desc {color: #696969}
 
 .nav-like{

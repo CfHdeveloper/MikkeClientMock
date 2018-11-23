@@ -15,37 +15,39 @@
   <%=link_to 'Twitter', @links[1], :class=>'mt-2'%>
   <%=link_to 'Facebook', @links[2], :class=>'mt-2'%>
   <h5 class="bold mt-5">活動日程</h5>
-  <table class="day-table mt-2">
-  <thead>
-    <tr>
-      <th scope="col" class="day-col">月</th>
-      <th scope="col" class="day-col">火</th>
-      <th scope="col" class="day-col">水</th>
-      <th scope="col" class="day-col">木</th>
-      <th scope="col" class="day-col">金</th>
-      <th scope="col" class="day-col sat">土</th>
-      <th scope="col" class="day-col sun">日</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <%for num in 0..6 do%>
-      <td class="time-col">
-        <div>
-        <%if @days.include?(num)%>
-          <h3 class="active">○</h3>
-          <p class="time">15:00<br>~<br>17:00</p>
-        <%else%>
-          <h5 class="disactive"> - </h5>
-        <%end%>
-        </div>
-      </td>
-    <%end%>
+  <div class="table-wrapper">
+    <table class="day-table mt-2">
+    <thead>
+      <tr>
+        <th scope="col" class="day-col">月</th>
+        <th scope="col" class="day-col">火</th>
+        <th scope="col" class="day-col">水</th>
+        <th scope="col" class="day-col">木</th>
+        <th scope="col" class="day-col">金</th>
+        <th scope="col" class="day-col sat">土</th>
+        <th scope="col" class="day-col sun">日</th>
     </tr>
-  </tbody>
-  </table>
+    </thead>
+    <tbody>
+      <tr>
+      <%for num in 0..6 do%>
+        <td class="time-col">
+          <div>
+          <%if @days.include?(num)%>
+            <h3 class="active">○</h3>
+            <p class="time">15:00<br>~<br>17:00</p>
+          <%else%>
+            <h5 class="disactive"> - </h5>
+          <%end%>
+          </div>
+        </td>
+      <%end%>
+      </tr>
+    </tbody>
+    </table>
+  </div>
 
-  <h5 class="catch-copy mt-5"><%=@title%></h5>
+  <h5 class="bold mt-5"><%=@title%></h5>
 
   <p class="desc mt-3"><%=@desc%></p>
 
