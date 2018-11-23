@@ -44,4 +44,6 @@ $(document).ready(()=>{
             $('#like').html("<i class='fa fa-heart mr-2'></i>お気に入り");
         }
     });
+
+    $('#back').click(()=> history.back())
 });
