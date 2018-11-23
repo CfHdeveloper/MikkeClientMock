@@ -6,15 +6,15 @@
 
 <div class="container">
   <p class="hidden" id="circle_id"><%=@id%></p>
-  <h5 class="element mt-5">活動場所</h5>
+  <h5 class="bold mt-5">活動場所</h5>
   <p class="mt-2"><%=@location%></p>
-  <h5 class="element mt-5">メンバー</h5>
+  <h5 class="bold mt-5">メンバー</h5>
   <p class="mt-2"><%=@member%>人</p>
-  <h5 class="element mt-5">リンク</h5>
+  <h5 class="bold mt-5">リンク</h5>
   <%=link_to 'HP', @links[0], :class=>'mt-2'%>
   <%=link_to 'Twitter', @links[1], :class=>'mt-2'%>
   <%=link_to 'Facebook', @links[2], :class=>'mt-2'%>
-  <h5 class="element mt-5">活動日程</h5>
+  <h5 class="bold mt-5">活動日程</h5>
   <table class="day-table mt-2">
   <thead>
     <tr>
@@ -53,6 +53,6 @@
     <a class="nav-like-btn" href="/search" id="back"><i class="fa fa-undo mr-2"></i>サークル一覧へ</a>
     <a class="nav-like-btn" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</a>
   </div>
-  
+
 </div>
 
