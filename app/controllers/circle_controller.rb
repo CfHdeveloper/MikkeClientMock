@@ -6,9 +6,14 @@ class CircleController < ApplicationController
     @days=''
 
     @days_array=params["days"]
+
     if (!@days_array.nil?)
-      @days_array.each do |day|
-        @days+=day
+      if @days_array.kind_of?(String)
+        @days=@days_array
+      else
+        @days_array.each do |day|
+          @days+=day
+        end
       end
     end
 
