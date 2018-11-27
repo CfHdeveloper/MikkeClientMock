@@ -2,28 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//色設定
 $yellow_default:#f5bb1c;
+$yellow_active:#f7c642;
+$pink_default: #FF5964;
+$pink_active: #FF6070;
 
 //card関連
 .card-container {
     position: relative;
     transition: 0.3s;
 
-    &:hover{
-        transform: scale(1.05,1.05);
-        transition-duration: 0.3s;
-    }
+    &:hover{transform: scale(1.02,1.02)}
 
     .card {
-        border-radius: 0%;
         border:none;
         box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
         padding: 0px;
-        z-index: 100;
-    
-        .card-img-top {
-            border-radius: 0%;
-        }
+        z-index: 1;
     
         .card-body {
             background-color: black;
@@ -36,133 +32,114 @@ $yellow_default:#f5bb1c;
             }
         }
     }
-    .triangle {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        right: 0px;
-        bottom: 0px;
-        background-color: yellow;
-        z-index: 200;
-    }
 }
 
-.hidden {
-    display: none;
-}
+.hidden {display: none}
 
-.triming {
-    width: 100%;/* トリミングしたい枠の幅 */
-    height: 400px;/* トリミングしたい枠の高さ */
-    object-fit: cover;
-}
-
-.container.img-container{
-    padding:0px;
-}
 .img-container{
+    margin: 0 -15px;
+    padding:0px;
     background-size:auto 100%;
     background-repeat: no-repeat;
-    width:100%;
+    background-position: 50% 50%;
+    width:calc(100% + 30px);
+    //スマホで読み込むと画像が変になる対策
+@media screen and (min-width:767px){
+    background-size:100% auto;  
+    height:400px;
 }
-
-//スマホで読み込むと画像が変になる対策
-@media screen and (min-width:480px){
-    .img-container{
-        background-size:100% auto;
-        background-repeat: no-repeat;
+    .title-wrapper {
+        position: relative;
         width:100%;
         height:400px;
+        background-color: rgba(0,0,0,0.3);
+        .title {
+            position:absolute;
+            left: .5em;
+            bottom: 1em;
+            color: white;
+            font-weight: bold;
+        @media screen and (max-width:767px){
+            font-size: 1.25rem;
+        }
+        }
     }
 }
 
-
-.title-wrapper {
-    position: relative;
-    width:100%;
-    height:400px;
-    background-color: rgba(0,0,0,0.6);
+.sns-icon{
+    padding: 4px;
+    .fa-home{color: #696969}//home
+    .fa-twitter{color: #55acee}//twitter
+    .fa-facebook{color: #3b5998}//facebook
+    &:hover{opacity: 0.8}
 }
-
-
-
-.title {
-    position:absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-
-.place {
-    color: #A9A9A9;
-}
-
-.element{
-    font-weight: bold;
-}
-
 
 //曜日関連
-.day-table{
+.table-wrapper{
     width: 100%;
-    .day-col {
-        text-align: center;
-        border: none;
-        width: 13%;
-        margin-bottom: 8px;
-    }
-
-    .sat{
-        color:#368bcb;
-    }
-
-    .sun {
-        color:#e64437;
-    }
-
-    .time-col {
-        border: 1px solid gainsboro;
-        padding-top:8px;
-        padding-bottom: 8px;
-
-        .active {
+@media screen and (max-width:575px){
+    overflow-x: scroll;
+}
+    .day-table{
+        width: 480px;
+        .day-col {
             text-align: center;
-            font-weight: bold;
-            margin:0;
-            color:$yellow_default;
+            border: none;
+            width: 13%;
+            margin-bottom: 8px;
         }
+        .sat{color:#368bcb}
+        .sun {color:#e64437}
+        .time-col {
+            border: 1px solid gainsboro;
+            padding-top:8px;
+            padding-bottom: 8px;
+            .active {
+                text-align: center;
+                font-weight: bold;
+                margin:0;
+                color:$yellow_default;
+            }
+            .time {
+                word-break: break-all;
+                text-align: center;
+                margin:0;
+                color: #A9A9A9;
+            }
+            .disactive {
+                text-align: center;
+                color: #A9A9A9;
+            }
+        } 
+    }
+}
 
-        .time {
-            word-break: break-all;
-            text-align: center;
-            margin:0;
-            color: #A9A9A9;
-        }
+.desc {color: #696969}
 
-        .disactive {
-            text-align: center;
-            color: #A9A9A9;
-        }
+.nav-like{
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
+    .nav-like-btn{
+        display: flex;
+        align-self: stretch;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        color: white !important;
+        cursor: pointer;
     }
 
-    
-}
+    #like{
+        background: $pink_default;
+        &:hover{background: $pink_active}
+    }
 
-.catch-copy {
-    font-weight: bold;
-}
-
-.desc {
-    color: #696969;
-}
-.like-button {
-    width: 50%;
-    padding-top:16px;
-    padding-bottom: 16px;
-}
-
-.btn-container {
-    width: 100%;
+    #back{
+        background: $yellow_default;
+        &:hover{background: $yellow_active}
+    }
 }

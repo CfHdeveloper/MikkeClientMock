@@ -6,52 +6,59 @@
 
 <div class="container">
   <p class="hidden" id="circle_id"><%=@id%></p>
-  <h5 class="element mt-5">活動場所</h5>
-  <p class="mt-2"><%=@location%></p>
-  <h5 class="element mt-5">メンバー</h5>
-  <p class="mt-2"><%=@member%>人</p>
-  <h5 class="element mt-5">リンク</h5>
-  <%=link_to 'HP', @links[0], :class=>'mt-2'%>
-  <%=link_to 'Twitter', @links[1], :class=>'mt-2'%>
-  <%=link_to 'Facebook', @links[2], :class=>'mt-2'%>
-  <h5 class="element mt-5">活動日程</h5>
-  <table class="day-table mt-2">
-  <thead>
-  <tr>
-    <th scope="col" class="day-col">月</th>
-    <th scope="col" class="day-col">火</th>
-    <th scope="col" class="day-col">水</th>
-    <th scope="col" class="day-col">木</th>
-    <th scope="col" class="day-col">金</th>
-    <th scope="col" class="day-col sat">土</th>
-    <th scope="col" class="day-col sun">日</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <%for num in 0..6 do%>
-      <td class="time-col">
-        <div>
-          <%if @days.include?(num)%>
-          <h3 class="active">○</h3>
-          <p class="time">15:00<br>~<br>17:00</p>
-          <%else%>
-          <h5 class="disactive"> - </h5>
-          <%end%>
-        </div>
-      </td>
-    <%end%>
-  </tr>
-  </tbody>
-  </table>
 
-  <h5 class="catch-copy mt-5"><%=@title%></h5>
+  <h5 class="bold mt-5">活動場所</h5>
+  <p class="mt-2"><%=@location%></p>
+
+  <h5 class="bold mt-5">メンバー</h5>
+  <p class="mt-2"><%=@member%>人</p>
+
+  <h5 class="bold mt-5">リンク</h5>
+  <a class='sns-icon' target="_blank" href='<%=@links[0]%>'><i class="fa fa-2x fa-home"></i></a>
+  <a class='sns-icon' target="_blank" href='<%=@links[1]%>'><i class="fa fa-2x fa-twitter"></i></a>
+  <a class='sns-icon' target="_blank" href='<%=@links[2]%>'><i class="fa fa-2x fa-facebook"></i></a>
+
+  <h5 class="bold mt-5">活動日程</h5>
+  <div class="table-wrapper">
+    <table class="day-table mt-2">
+    <thead>
+      <tr>
+        <th scope="col" class="day-col">月</th>
+        <th scope="col" class="day-col">火</th>
+        <th scope="col" class="day-col">水</th>
+        <th scope="col" class="day-col">木</th>
+        <th scope="col" class="day-col">金</th>
+        <th scope="col" class="day-col sat">土</th>
+        <th scope="col" class="day-col sun">日</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <%for num in 0..6 do%>
+        <td class="time-col">
+          <div>
+          <%if @days.include?(num)%>
+            <h3 class="active">○</h3>
+            <p class="time">15:00<br>~<br>17:00</p>
+          <%else%>
+            <h5 class="disactive"> - </h5>
+          <%end%>
+          </div>
+        </td>
+      <%end%>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+  <h5 class="bold mt-5"><%=@title%></h5>
 
   <p class="desc mt-3"><%=@desc%></p>
 
-  <div class="btn-container mt-5">
-    <a href="/search" class="btn btn-default like-button float-left" id="back"><i class="fa fa-undo mr-2"></i>サークル一覧へ</a>
-    <button class="btn btn-primary like-button float-right" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</button>
+  <div class="nav-like fixed-bottom">
+    <a class="nav-like-btn" id="back"><i class="fa fa-undo mr-2"></i>検索結果に戻る</a>
+    <a class="nav-like-btn" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</a>
   </div>
+
 </div>
 

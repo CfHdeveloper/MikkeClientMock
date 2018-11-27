@@ -19,53 +19,34 @@
 //色設定
 $yellow_default:#f5bb1c;
 $yellow_active:#f7c642;
-$pink: #FF5964;
-
-
+$pink_default: #FF5964;
+$pink_active: #E04050;
 
 //全体設定
 a {
     color: black;
+    &:hover{
+        color: gray;
+        text-decoration: none;
+    }
 }
 
 p {
     margin: 0px;
     padding: 0px;
 }
-a:hover {
-    color: gray;
-    text-decoration: none;
-}
 
-html {
-    min-height: 100%;
-}
-
-body {
-    height :100%;
-    //background: linear-gradient(#fbc2eb, #a6c1ee);
-    //background-color: white;
+html,body {
+    height: 100%;
+    width: 100%;
 }
 
 //色関連
-.white {
-    color:white;
-}
-.bg-yellow {
-    //background-color: $yellow_default;
-    background-color: $yellow_default;
-}
-.bg-primary {
-    color: black;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.pink {
-    color: $pink;
-}
+.white {color:white}
+.bg-yellow {background-color: $yellow_default}
+.bg-primary {color: black}
+.bold {font-weight: bold}
+.pink {color: $pink_default}
 
 //navbar関連
 //navbar
@@ -88,9 +69,7 @@ body {
         margin:0 .25rem;
     }
 
-    .dropdown {
-        position:static;
-    }
+    .dropdown {position:static}
 
     .dropdown-menu {
         width:100%;
@@ -104,12 +83,10 @@ body {
  }
 }
    
-   /* shows the dropdown menu on hover */
+/* shows the dropdown menu on hover */
 //  .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
 //    display:block!important;
 //  }
-
-
 
 //button関連
 .btn-default {
@@ -138,8 +115,26 @@ body {
     }
 }
 
-
 //userのみjsで遷移するのでcursor指定　
-#user {
-    cursor: pointer;
+#user {cursor: pointer}
+
+.nav-main-wrapper{
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 3rem;
+    margin-bottom: -3rem;
+}
+
+main{padding-bottom: 60px}
+
+footer{
+    text-align: center;
+    background: $yellow_default;
+    height: 3rem;
+    p{  
+        padding-top: 1rem;
+        color: white;
+        font-weight: bold;
+        font-size: .8em;
+    }
 }

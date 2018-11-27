@@ -10,104 +10,76 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-yellow">
-      <a class="navbar-brand" href="/">
-        <%=image_tag("logo.png", :size=>"150x19")%>
-        
-      </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fa fa-bars navbar-toggler-icon white"></i>
-
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link white" href="/">詳細検索</a>
-        </li>
-        <li class="nav-item">
-          <p class="nav-link white" id="user">ライク一覧</p>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            サークル検索
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <ul class="nav flex-column">
-                      <li class="nav-item">
-                      <p class="nav-link bold pink">活動場所で検索</p>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?location=0">豊中キャンパス</a>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?location=1">吹田キャンパス</a>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?location=2">箕面キャンパス</a>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?location=3">その他</a>
-                      </li>
-                  </ul>
-                </div>
-                <!-- /.col-md-4  -->
-                <div class="col-md-4">
-                  <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <p class="nav-link bold pink">曜日で検索</p>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=0">月</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=1">火</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=2">水</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=3">木</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=4">金</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/?days=5">土</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/search/days=6">日</a>
-                  </li>
-                </ul>
-                </div>
-                <!-- /.col-md-4  -->
-                  <div class="col-md-4">
-                  <ul class="nav flex-column">
-                      <li class="nav-item">
-                      <p class="nav-link bold pink">ジャンルで検索</p>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?genre[]=運動系">運動系</a>
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link" href="/search/?genre[]=文化系">文化系</a>
-                      </li>
-                  </ul>
+    <div class='nav-main-wrapper'>
+      <nav class="navbar navbar-expand-lg bg-yellow">
+        <div class="container">
+          <a class="navbar-brand" href="/"><%=image_tag("logo.png", :size=>"150x19")%></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars white"></i></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link white" href="/">詳細検索</a></li>
+              <li class="nav-item"><a class="nav-link white" href="/search">サークル一覧</a></li>
+              <li class="nav-item"><p class="nav-link white" id="user">ライク一覧</p></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">サークル検索</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <ul class="nav flex-column">
+                          <li class="nav-item"><p class="nav-link bold pink">活動場所で検索</p></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?location=0">豊中キャンパス</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?location=1">吹田キャンパス</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?location=2">箕面キャンパス</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?location=3">その他</a></li>
+                        </ul>
+                      </div>
+                      <!-- col-md-4  -->
+                      <div class="col-md-4">
+                        <ul class="nav flex-column">
+                          <li class="nav-item"><p class="nav-link bold pink">曜日で検索</p></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=0">月</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=1">火</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=2">水</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=3">木</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=4">金</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=5">土</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?days=6">日</a></li>
+                        </ul>
+                      </div>
+                      <!-- col-md-4  -->
+                      <div class="col-md-4">
+                        <ul class="nav flex-column">
+                          <li class="nav-item"><p class="nav-link bold pink">ジャンルで検索</p></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?genre[]=運動系">運動系</a></li>
+                          <li class="nav-item"><a class="nav-link" href="/search/?genre[]=文化系">文化系</a></li>
+                        </ul>
+                      </div>
+                      <!-- col-md-4 -->
+                    </div>
+                    <!-- row -->
                   </div>
-                <!-- /.col-md-4  -->
-              </div>
-            </div>
-            <!--  /.container  -->
+                  <!-- container -->
+                </div>
+                <!-- dropdown-menu -->
+              </li>
+            </ul>
           </div>
-        </li>
-      </ul>
+          <!-- collapse -->
+        </div>
+        <!-- container -->
+      </nav>
+
+      <main class="container">
+        <%= yield %>
+      </main>
+      
     </div>
-  </nav>
-    <div>
-      <%= yield %>
-    </div>
+    <!-- nav-main-wrapper -->
+
+    <footer>
+      <p>&copy; 2018 CFH All Rights Reserved.</p>
+    </footer>
+
   </body>
 </html>
