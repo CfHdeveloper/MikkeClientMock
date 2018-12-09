@@ -185,6 +185,7 @@ $accent-color:#d7847e;
 .circle-catch-copy-desc{
     color:#3e3e3e;
     font-size: 150%;
+    line-height: 1.5;
     margin-top:20px;
 }
 
@@ -250,7 +251,7 @@ $accent-color:#d7847e;
     @media screen and (max-width:960px){
         display: block;
         width: 100%;
-        height: 50px;
+        height: 100px;
     }
 
 }
@@ -265,7 +266,10 @@ $accent-color:#d7847e;
         right: 10%;
     }
     font-size: 200%;
-    padding: 15px 19.5px;
+    width:60px;
+    height: 60px;
+    text-align: center;
+    padding-top:15px; 
     border-radius: 200px;
     color:white;
     background: #e1e1e1;
