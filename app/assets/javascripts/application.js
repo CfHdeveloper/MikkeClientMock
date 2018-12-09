@@ -18,16 +18,6 @@
 //= require bootstrap-sprockets
 $(document).ready(function(){
 
-    // Add slideDown animation to Bootstrap dropdown when expanding.
-    $('.dropdown').on('show.bs.dropdown', function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-    });
-
-    // Add slideUp animation to Bootstrap dropdown when collapsing.
-    $('.dropdown').on('hide.bs.dropdown', function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-    });
-
     $('#user').click(function(){
         console.log("redirect to user page");
 
@@ -42,6 +32,34 @@ $(document).ready(function(){
             window.location.href = '/user/?ids='+userKeepId;
         }else{
             window.location.href= '/user/'
+        }
+    });
+});
+
+$(function(){
+    $('#nav-open').click(function(){
+        console.log("navigation open");
+        $('#blackout').css('display','block');
+        $('.gnav').css('transform','translateX(0%)');
+    });
+
+    $('#blackout').click(function(){
+        $('#blackout').css('display','none');
+        $('.gnav').css('transform','translateX(-105%)');
+    });
+
+    $('#search').click(function(e){
+        if ($(window).width()<960){
+            $('.menu').slideToggle();
+        }
+    });   
+
+    //.accordion1の中のp要素がクリックされたら
+    $('.menu-index-title').click(function(e){
+        if ($(window).width()<960){
+            //クリックされた.accordion1の中のp要素に隣接するul要素が開いたり閉じたりする。
+            $(this).next('ul').slideToggle();
+            e.stopPropagation();
         }
     });
 });

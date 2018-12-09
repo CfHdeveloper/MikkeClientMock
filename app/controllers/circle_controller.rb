@@ -24,6 +24,8 @@ class CircleController < ApplicationController
       'days'=>@days
     }
     @circles=connect_index_api(@query)
+    @page_title = "RESULT"
+    @page_title_jp = "検索結果"
   end
 
   def user
@@ -33,6 +35,8 @@ class CircleController < ApplicationController
         circles=@ids.split(//).map(&:to_i)
         @circles=connect_user_api(circles)
     end
+    @page_title = "LIKE"
+    @page_title_jp = "お気に入り"
     render "circle/index"
   end
   

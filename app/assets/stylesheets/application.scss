@@ -12,106 +12,377 @@
  *= require_self
  *= require_tree
  */
-
-@import "bootstrap";
 @import "font-awesome";
 
 //色設定
+
+$base-color:#b3ce5b;
+$accent-color:#d7847e;
 $yellow_default:#f5bb1c;
 $yellow_active:#f7c642;
 $pink_default: #FF5964;
 $pink_active: #E04050;
 
 //全体設定
-a {
-    color: black;
-    &:hover{
-        color: gray;
-        text-decoration: none;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 10px;
+    font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
-p {
-    margin: 0px;
-    padding: 0px;
-}
-
-html,body {
+html {
     height: 100%;
+}
+
+body {
+    height: 100%;
+    background: white;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background: $base-color;
     width: 100%;
+    height: 3rem;
+    p{  
+        padding-top: 1rem;
+        color: white;
+        font-weight: bold;
+        font-size: .8em;
+    }
 }
-
-//色関連
-.white {color:white}
-.bg-yellow {background-color: $yellow_default}
-.bg-primary {color: black}
-.bold {font-weight: bold}
-.pink {color: $pink_default}
-
 //navbar関連
-//navbar
-/* adds some margin below the link sets  */
-.navbar {
-    .dropdown-menu {
-        border:none;
-        background-color:white;
-    }
-}
- 
- /* breakpoint and up - mega dropdown styles */
-@media screen and (min-width: 992px) {
-   
-   /* remove the padding from the navbar so the dropdown hover state is not broken */
- .navbar {
-   /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
-   .nav-item {
-        padding:.25rem .25rem;
-        margin:0 .25rem;
+@media all and (min-width: 960px) { //pc版
+
+    // mobile系のみの要素をdisplay:noneする
+    // 具体的にはハンバーガーメニュー 関連
+    .mobile-menu-title-container,#blackout,#nav-open {
+        display: none;
     }
 
-    .dropdown {position:static}
+    .header {
+        position: fixed;
+        z-index:9999;
+    
+        width: 100%;
+        height:56px;
+    
+        background: white;
+        box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        width: 100%;
+        max-width: 1140px;
+        height: 56px;
+    
+        margin: 0 auto;
+    }
+    
+    .title {
+        font-size:170%; 
+    }
+    
+    .gnav {
+        display: flex;
+    }
+    
+    .nav-item {
+        list-style: none;
+        padding:21px 24px 17px 24px;
+    }
+    
+    .nav-link {
+        display: inline;
 
-    .dropdown-menu {
-        width:100%;
+        text-decoration: none;
+        font-size:140%;
+        color:#3e3e3e;
+        font-weight: 700;
+
+        padding-bottom: 4px;
+    }
+    
+    .nav-link:hover{
+        border-bottom:2px solid $accent-color;
+    }
+    .menu {
+        width: 100vw;
+        height:300px;
+    
+        position: absolute;
+        top:54px;
         left:0;
-        right:0;
-        /*  height of nav-item  */
-        top:45px;
-        border: 1px solid rgba(0,0,0,.15);
+    
+        background: white;
+        box-shadow: 0px 9px 10px -10px rgba(0,0,0,0.6);
+    
+        transform: scaleY(0.000000001);
+        transform-origin: top;
+    
+        transition: 0.2s;
+    }
+    
+    .nav-item:hover .menu{
+        transform: scaleY(1);
+    
+    }
+    
+    .menu-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .menu-title-container {
+        height:300px;
+        width:19%;
+        
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    
+        background: $base-color;
+    
+    }
+    
+    .menu-title {
+        font-size:300%;
+        color: white;
+    }
+    
+    .menu-desc {
+        font-size:140%;
+        letter-spacing: 2px;
+        color: #e3e3e3;
+    }
+    
+    .menu-index-container {
+        width: 27%;
+        height: 280px;
+    
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        flex-wrap: wrap;
+    
+        border-right: 1px solid #e1e1e1;
+    }
+    
+    
+    .menu-index-title {
+    
+        display: inline-block;
+    
+        width: 180px;
+        text-align: center;
+        font-size: 160%;
+        font-weight: 700;
+        padding: 10px 20px;
+        border-radius: 200px;
+    
+        background: $accent-color;
+        color: white;
+    
+    }
+    
+    .menu-index-nav-item {
+        list-style: none;
+        margin-top:20px;
+        width: 100%;
+    }
+    
+    .menu-index-nav-link {
+        text-decoration: none;
+        font-size: 150%;
+        color: #3e3e3e;
+    }
+    
+    .day-container {
+        display: flex;
+        flex-flow: wrap;
+    }
+    
+    .day-item {
+        width: 50%;
+        text-align: center;
+        margin-top:30px;
+    }
+    
+    .day {
+        text-decoration: none;
+        font-size: 150%;
+    
+        padding: 10px 10px;
+        border-radius: 200px;
+        
+        background-color: #0168b3;
+        color:white;
     }
 
- }
-}
-   
-/* shows the dropdown menu on hover */
-//  .navbar .dropdown:hover .dropdown-menu, .navbar .dropdown .dropdown-menu:hover {
-//    display:block!important;
-//  }
-
-//button関連
-.btn-default {
-    color: #333333;
-    background-color: #f0f0f0;
-    border-color: #f0f0f0;
-}
-
-.btn-primary{
-    color:white;
-    background-color: $yellow_default;
-    border-color: $yellow_default;
-
-    &:hover,&:active{
-        background-color: $yellow_active;
-        border-color: $yellow_active;
+    .main {
+        padding-top:56px;
+        width: 100%;
     }
 }
 
-//bootstrap特有のクリック時に青い枠線がでる現象への対策
-//クリック時についてはまだ改善できていない
-.btn{
-    &:focus {
-        outline:none !important;
-        box-shadow: none;
+@media all and (max-width: 960px) {//mobile版
+
+    .main {
+        padding-top:50px;
+        width: 100%;
+    }
+
+    //mobile版はfooter非表示
+    .footer {
+        display: none;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        height: 50px;
+        width: 100%;
+
+        background: white;
+
+        z-index: 100;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 170%;
+    }
+
+    #nav-open {
+        position: absolute;
+        right: 10px;
+        display: inline-block;
+        width: 30px;
+        height: 22px;
+        vertical-align: middle;
+    }
+
+    .icon {
+        font-size: 170%;
+    }
+
+    #blackout {
+        background: rgba(0,0,0,0.5);
+        position: fixed;
+        top:0;
+        left: 0;
+        width:100%;
+        height: 100%;
+        z-index: 200;
+        display: none;
+    }
+
+    .gnav {
+        overflow: auto;
+        position: fixed;
+        z-index: 9999;
+        width:90%;
+        height: 100%;
+        max-width:330px;
+        background: white;
+        top: 0;
+        left: 0;
+        transform: translateX(-105%);/*左に隠しておく*/
+        transition: 0.3s;
+    }
+
+    .nav-item {
+        width:100%;
+        background: $base-color;
+        text-align: center;
+    }
+
+    .nav-link {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: 170%;
+        padding: 24px 40px;
+    }
+
+    .menu {
+        width: 100%;
+        background: white;
+        display: none;
+    }
+
+    .mobile-menu-title-container {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 200px;
+    }
+
+    .menu-title {
+        font-size: 270%;
+        color:$base-color;
+    }
+
+    .menu-desc {
+        font-size: 140%;
+        letter-spacing: 2px;
+        color:#3e3e3e;
+    }
+
+    .menu-index-title {
+        width: 100%;
+        text-align: center;
+        font-size: 170%;
+        color:$base-color;
+        padding: 24px 40px;
+    }
+    
+
+    .menu-index-nav {
+        display: none;
+    }
+
+    .menu-index-title:hover~.menu-index-nav{
+        transform: scaleY(1);
+        transition: 0.2s;
+
+    }
+
+    .menu-title-container {
+        display: none;
+    }
+
+    .menu-index-nav-item {
+        text-align: center;
+        background: #f1f1f1;
+    }
+
+
+    .menu-index-nav-link,.day{
+        padding: 24px 40px;
+        display: block;
+        text-decoration: none;
+        color:#3e3e3e;
+        font-size: 160%;
     }
 }
 
@@ -123,18 +394,4 @@ html,body {
     min-height: 100%;
     padding-bottom: 3rem;
     margin-bottom: -3rem;
-}
-
-main{padding-bottom: 60px}
-
-footer{
-    text-align: center;
-    background: $yellow_default;
-    height: 3rem;
-    p{  
-        padding-top: 1rem;
-        color: white;
-        font-weight: bold;
-        font-size: .8em;
-    }
 }
