@@ -257,7 +257,9 @@ $accent-color:#d7847e;
 }
 .like-btn{
     position: fixed;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     bottom:8%;
     right: 13%;
     
@@ -269,9 +271,9 @@ $accent-color:#d7847e;
     width:60px;
     height: 60px;
     text-align: center;
-    padding-top:15px; 
     border-radius: 200px;
     color:white;
     background: #e1e1e1;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.4);
     cursor: pointer;
 }
