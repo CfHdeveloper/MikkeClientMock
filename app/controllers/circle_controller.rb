@@ -1,8 +1,16 @@
 class CircleController < ApplicationController
   
   def index
+
+    p params.class
+    if(params['location']||params['days']||params['genre']) #検索条件がある場合(実装汚いしまた考えよう)
+      @page_title = "RESULT"
+      @page_title_jp = "検索結果"
+    else
+      @page_title = "CIRCLES"
+      @page_title_jp = "サークル一覧"
+    end
     @location=params["location"]
-    p "location #{@location}"
     @days=''
 
     @days_array=params["days"]
@@ -24,8 +32,6 @@ class CircleController < ApplicationController
       'days'=>@days
     }
     @circles=connect_index_api(@query)
-    @page_title = "RESULT"
-    @page_title_jp = "検索結果"
   end
 
   def user
