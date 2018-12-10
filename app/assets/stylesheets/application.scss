@@ -87,8 +87,31 @@ footer{
         margin: 0 auto;
     }
     
-    .title {
-        font-size:170%; 
+    .app-title {
+        font-size: 180%;
+        font-weight: bold;
+        text-decoration: none;
+        color:#3e3e3e; 
+    }
+
+    .app-title:hover {
+        animation: hop .5s ease-in-out;
+        color: $accent-color;
+    }
+
+    //pc版の時だけ少しだけ跳ねさせてみる
+    @keyframes hop{
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
     }
     
     .gnav {
