@@ -28,12 +28,12 @@ $pink_active: #E04050;
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    font-size: 10px;
     font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
 html {
     height: 100%;
+    font-size: 62.5%;
 }
 
 body {
@@ -52,7 +52,7 @@ footer{
         padding-top: 1rem;
         color: white;
         font-weight: bold;
-        font-size: .8em;
+        font-size: 0.8rem;
     }
 }
 //navbar関連
@@ -69,10 +69,10 @@ footer{
         z-index:9999;
     
         width: 100%;
-        height:56px;
+        height:5.6rem;
     
         background: white;
-        box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 .1rem 1rem rgba(0,0,0,0.3);
     }
     
     .nav-container {
@@ -81,8 +81,8 @@ footer{
         align-items: center;
     
         width: 100%;
-        max-width: 1140px;
-        height: 56px;
+        max-width: 114rem;
+        height: 5.6rem;
     
         margin: 0 auto;
     }
@@ -106,11 +106,11 @@ footer{
         }
 
         50% {
-            transform: translateY(-5px);
+            transform: translateY(-.5rem);
         }
 
         100% {
-            transform: translateY(0px);
+            transform: translateY(0);
         }
     }
     
@@ -120,7 +120,7 @@ footer{
     
     .nav-item {
         list-style: none;
-        padding:21px 24px 17px 24px;
+        padding: 2.1rem 2.4rem 1.7rem 2.4rem;
     }
     
     .nav-link {
@@ -131,22 +131,23 @@ footer{
         color:#3e3e3e;
         font-weight: 700;
 
-        padding-bottom: 4px;
+        padding-bottom: .4rem;
     }
     
     .nav-link:hover{
-        border-bottom:2px solid $accent-color;
+        border-bottom:.2rem solid $accent-color;
     }
     .menu {
         width: 100vw;
         height:300px;
     
         position: absolute;
-        top:54px;
+        top:5.4rem;
         left:0;
     
         background: white;
-        box-shadow: 0px 9px 10px -10px rgba(0,0,0,0.6);
+        //TODO
+        //menuの下側だけbox-shadow入れたい...
     
         transform: scaleY(0.000000001);
         transform-origin: top;
@@ -165,7 +166,7 @@ footer{
     }
     
     .menu-title-container {
-        height:300px;
+        height:30rem;
         width:19%;
         
         display: flex;
@@ -184,13 +185,13 @@ footer{
     
     .menu-desc {
         font-size:140%;
-        letter-spacing: 2px;
+        letter-spacing: .2rem;
         color: #e3e3e3;
     }
     
     .menu-index-container {
         width: 27%;
-        height: 280px;
+        height: 28rem;
     
         display: flex;
         flex-flow: column;
@@ -209,8 +210,8 @@ footer{
         text-align: center;
         font-size: 160%;
         font-weight: 700;
-        padding: 10px 20px;
-        border-radius: 200px;
+        padding: 1rem 2rem;
+        border-radius: 20rem;
     
         background: $accent-color;
         color: white;
@@ -219,7 +220,7 @@ footer{
     
     .menu-index-nav-item {
         list-style: none;
-        margin-top:20px;
+        margin-top:2rem;
         width: 100%;
     }
     
@@ -237,22 +238,22 @@ footer{
     .day-item {
         width: 50%;
         text-align: center;
-        margin-top:30px;
+        margin-top:3rem;
     }
     
     .day {
         text-decoration: none;
         font-size: 150%;
     
-        padding: 10px 10px;
-        border-radius: 200px;
+        padding: 1rem 1rem;
+        border-radius: 20rem;
         
         background-color: #0168b3;
         color:white;
     }
 
     .main {
-        padding-top:56px;
+        padding-top:5.6rem;
         width: 100%;
     }
 }
@@ -260,7 +261,7 @@ footer{
 @media all and (max-width: 960px) {//mobile版
 
     .main {
-        padding-top:50px;
+        padding-top:5rem;
         width: 100%;
     }
 
@@ -272,11 +273,11 @@ footer{
     .header {
         position: fixed;
         top: 0;
-        height: 50px;
+        height: 5rem;
         width: 100%;
 
         background: white;
-        box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+        box-shadow: 0px .1rem 1rem rgba(0,0,0,0.3);
 
         z-index: 100;
     }
@@ -286,7 +287,7 @@ footer{
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 50px;
+        height: 5rem;
     }
 
     .app-title {
@@ -300,8 +301,8 @@ footer{
         position: absolute;
         right: 10px;
         display: inline-block;
-        width: 30px;
-        height: 22px;
+        width: 3rem;
+        height: 2.2rem;
         vertical-align: middle;
     }
 
@@ -326,7 +327,7 @@ footer{
         z-index: 9999;
         width:90%;
         height: 100%;
-        max-width:330px;
+        max-width:33rem;
         background: white;
         top: 0;
         left: 0;
@@ -345,7 +346,7 @@ footer{
         text-decoration: none;
         color: white;
         font-size: 170%;
-        padding: 24px 40px;
+        padding: 2.4rem 4rem;
     }
 
     .menu {
@@ -361,7 +362,7 @@ footer{
         align-items: center;
 
         width: 100%;
-        height: 200px;
+        height: 20rem;
     }
 
     .menu-title {
@@ -371,7 +372,7 @@ footer{
 
     .menu-desc {
         font-size: 140%;
-        letter-spacing: 2px;
+        letter-spacing: .2rem;
         color:#3e3e3e;
     }
 
@@ -380,7 +381,7 @@ footer{
         text-align: center;
         font-size: 170%;
         color:$base-color;
-        padding: 24px 40px;
+        padding: 2.4rem 4rem;
     }
     
 
@@ -405,7 +406,7 @@ footer{
 
 
     .menu-index-nav-link,.day{
-        padding: 24px 40px;
+        padding: 2.4rem 4rem;
         display: block;
         text-decoration: none;
         color:#3e3e3e;
