@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'user/index'
-  get '/' => 'search#top'
-  
+  # get '/' => 'search#top'
+  get '/'=>'circle#index'
   get '/search'=>'circle#index'
   get '/circle/:id'=>'circle#show'
   get '/user'=>'circle#user'

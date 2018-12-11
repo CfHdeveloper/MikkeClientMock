@@ -1,14 +1,27 @@
 class CircleController < ApplicationController
   
   def index
+
+    p params.class
+    if(params['location']||params['days']||params['genre']) #検索条件がある場合(実装汚いしまた考えよう)
+      @page_title = "RESULT"
+      @page_title_jp = "検索結果"
+    else
+      @page_title = "CIRCLES"
+      @page_title_jp = "サークル一覧"
+    end
     @location=params["location"]
-    p "location #{@location}"
     @days=''
 
     @days_array=params["days"]
+
     if (!@days_array.nil?)
-      @days_array.each do |day|
-        @days+=day
+      if @days_array.kind_of?(String)
+        @days=@days_array
+      else
+        @days_array.each do |day|
+          @days+=day
+        end
       end
     end
 
@@ -28,6 +41,8 @@ class CircleController < ApplicationController
         circles=@ids.split(//).map(&:to_i)
         @circles=connect_user_api(circles)
     end
+    @page_title = "LIKE"
+    @page_title_jp = "お気に入り"
     render "circle/index"
   end
   

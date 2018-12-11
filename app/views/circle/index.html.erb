@@ -1,20 +1,21 @@
-<%if !@circles.nil? && !@circles.empty?%>
+<div class="page-title-container">
+    <h3 class="page-title"><%=@page_title%></h3>
+    <p class="page-title-jp"><%=@page_title_jp%></p>
+</div>
 
-    <div class="row mt-5">
-    <%@circles.each do |circle|%>
-        <div class="col-sm-6 col-md-4">
-            <div class="card-container">
-                <a href='/circle/<%=circle["id"]%>' class="card mb-4">
-                    <div class="card-body">
-                        <p class="card-text"><%=circle["name"]%></p>
-                    </div>
-                    <img class="card-img-top" src='<%=circle["url"]%>' alt="Card image cap">
-                </a>
+<div class="index-container">
+    <%if !@circles.nil? && !@circles.empty?%>
+
+        <%@circles.each do |circle|%>
+
+            <div class="card">
+                <div class="card-img" style="background-image:url('<%=circle["url"]%>');" alt="Card image cap"></div>
+                <p class="circle-title"><%=circle["name"]%></p>
+                <a class="card-link" href="/circle/<%=circle["id"]%>"></a>
             </div>
-        </div>
+        <%end%>
+    <%else%>
+        <p style='padding-top:40px;'>指定のサークルは見つかりませんでした</p>
     <%end%>
-    </div>
-<%else%>
-    <p style='padding-top:40px;'>指定のサークルは見つかりませんでした</p>
-<%end%>
+</div>
 

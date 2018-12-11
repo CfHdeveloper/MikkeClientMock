@@ -1,64 +1,67 @@
-<div class="container img-container" style="background-image:url('<%=@image%>');">
-  <div class="title-wrapper container">
-    <h2 class="title ml-3"><%=@name%></h2>
-  </div>
+<div class="img-container" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('<%=@image%>');">
+  <h2 class="show-circle-title"><%=@name%></h2>
 </div>
 
-<div class="container">
-  <p class="hidden" id="circle_id"><%=@id%></p>
+<div class="details-container">
 
-  <h5 class="bold mt-5">活動場所</h5>
-  <p class="mt-2"><%=@location%></p>
+  <div class="container">
+    <p class="hidden" id="circle_id"><%=@id%></p>
 
-  <h5 class="bold mt-5">メンバー</h5>
-  <p class="mt-2"><%=@member%>人</p>
+    <div class="circle-item-container">
+      <h5 class="circle-item-title">活動場所</h5>
+      <p class="circle-item-content"><%=@location%></p>
+    </div>
+    <div class="circle-item-container">
+      <h5 class="circle-item-title">メンバー</h5>
+      <p class="circle-item-content"><%=@member%>人</p>
+    </div>
+    <div class="circle-item-container">
+      <h5 class="circle-item-title">リンク</h5>
+      <a class='sns-icon' target="_blank" href='<%=@links[0]%>'><i class="fa fa-2x fa-home"></i></a>
+      <a class='sns-icon' target="_blank" href='<%=@links[1]%>'><i class="fa fa-2x fa-twitter"></i></a>
+      <a class='sns-icon' target="_blank" href='<%=@links[2]%>'><i class="fa fa-2x fa-facebook"></i></a>
+    </div>
 
-  <h5 class="bold mt-5">リンク</h5>
-  <a class='sns-icon' target="_blank" href='<%=@links[0]%>'><i class="fa fa-2x fa-home"></i></a>
-  <a class='sns-icon' target="_blank" href='<%=@links[1]%>'><i class="fa fa-2x fa-twitter"></i></a>
-  <a class='sns-icon' target="_blank" href='<%=@links[2]%>'><i class="fa fa-2x fa-facebook"></i></a>
-
-  <h5 class="bold mt-5">活動日程</h5>
-  <div class="table-wrapper">
-    <table class="day-table mt-2">
-    <thead>
-      <tr>
-        <th scope="col" class="day-col">月</th>
-        <th scope="col" class="day-col">火</th>
-        <th scope="col" class="day-col">水</th>
-        <th scope="col" class="day-col">木</th>
-        <th scope="col" class="day-col">金</th>
-        <th scope="col" class="day-col sat">土</th>
-        <th scope="col" class="day-col sun">日</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-      <%for num in 0..6 do%>
-        <td class="time-col">
-          <div>
-          <%if @days.include?(num)%>
-            <h3 class="active">○</h3>
-            <p class="time">15:00<br>~<br>17:00</p>
-          <%else%>
-            <h5 class="disactive"> - </h5>
+    <h5 class="circle-item-title" style="margin-top:20px">活動日程</h5>
+    
+    <div class="table-wrapper">
+      <table class="day-table">
+        <thead>
+          <tr>
+            <th scope="col" class="day-col">月</th>
+            <th scope="col" class="day-col">火</th>
+            <th scope="col" class="day-col">水</th>
+            <th scope="col" class="day-col">木</th>
+            <th scope="col" class="day-col">金</th>
+            <th scope="col" class="day-col sat">土</th>
+            <th scope="col" class="day-col sun">日</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <%for num in 0..6 do%>
+            <td class="time-col">
+              <%if @days.include?(num)%>
+                <h3 class="active col">○</h3>
+              <%else%>
+                <h5 class="disactive col"> - </h5>
+              <%end%>
+            </td>
           <%end%>
-          </div>
-        </td>
-      <%end%>
-      </tr>
-    </tbody>
-    </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
-  <h5 class="bold mt-5"><%=@title%></h5>
-
-  <p class="desc mt-3"><%=@desc%></p>
-
-  <div class="nav-like fixed-bottom">
-    <a class="nav-like-btn" id="back"><i class="fa fa-undo mr-2"></i>検索結果に戻る</a>
-    <a class="nav-like-btn" id="like"><i class="fa fa-heart mr-2"></i>お気に入り</a>
+  <div class="container">
+    <h5 class="circle-catch-copy"><%=@title%></h5>
+    <p class="circle-catch-copy-desc"><%=@desc%></p>
   </div>
 
+  <div class="mobile-margin"></div>
+  <a class="like-btn" id="like"><i class="fa fa-heart"></i></a>
 </div>
+
 

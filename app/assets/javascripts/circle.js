@@ -12,11 +12,11 @@ $(document).ready(()=>{
 
         if(userKeepId.match(String(id))){
             console.log("like");
-            $('#like').html("<i class='fa fa-heart mr-2'></i>お気に入り解除");
+            $('#like').css("background","#d7847e");
         }else{
             //このページのIdは保存されていない
             console.log("dislike");
-            $('#like').html("<i class='fa fa-heart mr-2'></i>お気に入り");
+            $('#like').css("background","#e1e1e1");
         }
     }
     isLiked();
@@ -33,15 +33,15 @@ $(document).ready(()=>{
         if(userKeepId && !userKeepId.match(String(id))){
             //ブラウザにすでにuserKeepIdが保存されていて、かつこのページのIdは保存されていない
             localStorage.setItem("user", userKeepId + id);
-            $('#like').html("<i class='fa fa-trash mr-2'></i>お気に入り解除");
+            $('#like').css("background","#d7847e");
         }else if(!userKeepId){
             //ブラウザにuserKeepIdが保存されていない
             localStorage.setItem("user", id);
-            $('#like').html("<i class='fa fa-trash mr-2'></i>お気に入り解除");
+            $('#like').css("background","#d7847e");
         }else{
             var userKeepIdDel = userKeepId.replace(String(id),"");
             localStorage.setItem("user", userKeepIdDel);
-            $('#like').html("<i class='fa fa-heart mr-2'></i>お気に入り");
+            $('#like').css("background","#e1e1e1");
         }
     });
 
