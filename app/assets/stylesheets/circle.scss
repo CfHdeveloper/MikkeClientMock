@@ -280,6 +280,17 @@ $accent-color:#d7847e;
     border-radius: 200px;
     color:white;
     background: #e1e1e1;
-    box-shadow:1px 1px 5px rgba(0,0,0,0.4);
     cursor: pointer;
+    transition: .2s;
+    box-shadow:0px 5px 10px rgba(0,0,0,0.4);
+}
+
+.like-btn:hover{
+    transform: translateY(-2px);
+    box-shadow:0px 7px 10px rgba(0,0,0,0.4);
+}
+
+.like-btn:active{
+    transform: translateY(1px);
+    box-shadow:0px 2px 5px rgba(0,0,0,0.4);
 }
