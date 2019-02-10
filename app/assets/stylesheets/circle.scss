@@ -138,6 +138,7 @@
     margin:0 auto;
     display: flex;
     background: white;
+    margin-bottom: 130px;
 
     @media screen and (max-width:960px){
         flex-flow: column;
@@ -183,6 +184,7 @@
     font-size: 150%;
     line-height: 1.5;
     margin-top:2rem;
+    text-align: justify;
 }
 
 .sns-icon{
