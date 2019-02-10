@@ -59,6 +59,7 @@ class CircleController < ApplicationController
     @location = location[@circle["location"].to_i-1]
     @image=@circle["url"]
     @links=eval(@circle["link"])
+    @fee=@circle["fee"]
 
     days_str=@circle["days"]
     @days=days_str.split(//).map(&:to_i)
