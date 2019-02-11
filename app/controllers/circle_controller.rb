@@ -56,13 +56,14 @@ class CircleController < ApplicationController
     @desc=@circle["description"]
     @title=@circle["title"]
     @member = @circle["members"]
-    @location = location[@circle["location"].to_i-1]
+    @location = location[@circle["location"].to_i]
     @image=@circle["url"]
     @links=eval(@circle["link"])
     @fee=@circle["fee"]
 
     days_str=@circle["days"]
     @days=days_str.split(//).map(&:to_i)
+    p @location
 
 
     
